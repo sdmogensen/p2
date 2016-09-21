@@ -1,4 +1,4 @@
-# P2: XKCD Password Generator
+# P2: xkcd Password Generator
 
 ## Live URL
 <http://p2.mogensen.site/>

@@ -1,6 +1,10 @@
 body {
-  background: whitesmoke;
-  color: #444444;
-  font-family: Geneva;
-  text-align: center;
+    background: whitesmoke;
+    color: #444444;
+    font-family: Geneva;
+    text-align: center;
+}
+
+.error {
+    color:red;
 }
