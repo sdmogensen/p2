@@ -2,11 +2,9 @@
 <html>
 <head>
 
-    <title>xkcd Password Generator</title>
     <meta charset='utf-8'>
-
+    <title>xkcd Password Generator</title>
     <link rel='stylesheet' href='styles.css' type='text/css'>
-
     <?php require('logic.php'); ?>
 
 </head>
@@ -22,6 +20,10 @@
             <div class='error'><?php echo $error; ?></div>
         <?php endif ?>
     </form>
+
+    <?php if (isset($password)): ?>
+        <p class='password'><?php echo $password; ?></p>
+    <?php endif ?>
 
 </body>
 </html>
