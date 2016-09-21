@@ -22,8 +22,8 @@ body {
 
 .button {
     background: black;
+    color: whitesmoke;
     border: none;
-    color: white;
     padding: 6px 10px;
     font-size: 100%;
     border-radius: 10px;

@@ -1,5 +1,18 @@
 <?php
 
+if (array_key_exists('number', $_GET) and $_GET['number'] == 'yes') {
+    $number = true;
+}
+else {
+    $number = false;
+}
+if (array_key_exists('symbol', $_GET) and $_GET['symbol'] == 'yes') {
+    $symbol = true;
+}
+else {
+    $symbol = false;
+}
+
 if (array_key_exists('numWords', $_GET)) {
     $value = $_GET['numWords'];
 
@@ -17,19 +30,6 @@ if (array_key_exists('numWords', $_GET)) {
     }
 }
 
-if (array_key_exists('number', $_GET) and $_GET['number'] == 'yes') {
-    $number = true;
-}
-else {
-    $number = false;
-}
-if (array_key_exists('symbol', $_GET) and $_GET['symbol'] == 'yes') {
-    $symbol = true;
-}
-else {
-    $symbol = false;
-}
-
 if (isset($numWords)) {
     $file = fopen("words", "r");
     if (!$file) {
@@ -45,7 +45,6 @@ if (isset($numWords)) {
     fclose($file);
 
     $wordCount = count($words);
-    $symbols = [ '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', ';', ':', '<', '>', '?', '/', '\\', '|' ];
     $password = '';
 
     for ($i = 0; $i < $numWords; $i++) {
@@ -58,6 +57,8 @@ if (isset($numWords)) {
         $password .= rand(0,9);
     }
     if ($symbol) {
+        $symbols = [ '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+',
+                     '=', ';', ':', '<', '>', '?', '/', '\\', '|' ];
         $password .= $symbols[rand(0, count($symbols) - 1)];
     }
 }
