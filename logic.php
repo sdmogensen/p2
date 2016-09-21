@@ -2,7 +2,8 @@
 
 if (array_key_exists('numWords', $_GET)) {
     $value = $_GET['numWords'];
-    
+
+    # Some form validation
     if(trim($value == '')) {
         $error = 'Please fill out the number of words.';
         return;
@@ -30,15 +31,25 @@ else {
 }
 
 if (isset($numWords)) {
-    $words = [ 'correct', 'battery', 'horse', 'staple' ];
-
-    $symbols = [ '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', ';', ':', '<', '>', '?', '/', '\\', '|' ];
+    $file = fopen("words", "r");
+    if (!$file) {
+        $error = 'Unable to load word list on server, sorry :(';
+        return;
+    }
+    $words = [];
+    $i = 0;
+    while (($data = fgetcsv($file)) !== false) {
+        $words[$i] = $data[0];
+        $i++;
+    }
+    fclose($file);
 
     $wordCount = count($words);
+    $symbols = [ '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', ';', ':', '<', '>', '?', '/', '\\', '|' ];
     $password = '';
 
     for ($i = 0; $i < $numWords; $i++) {
-        $password = $password.$words[rand(0, $wordCount - 1)];
+        $password .= $words[rand(0, $wordCount - 1)];
         if ($i < $numWords - 1) {
             $password .= '-';
         }
