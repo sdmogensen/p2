@@ -14,12 +14,13 @@
     <form action='index.php' method='get'>
         # of words <input type='text' name='numWords' size='6' maxlength='1' autofocus> (Max 9)<br>
         <input type='checkbox' name='number' value='yes'> Add a number<br>
-        <input type='checkbox' name='symbol' value='yes'> Add a symbol<br>
-        <input type='submit' value='Submit'>
-        <?php if(isset($error)): ?>
-            <div class='error'><?php echo $error; ?></div>
-        <?php endif ?>
+        <input type='checkbox' name='symbol' value='yes'> Add a symbol<br><br>
+        <input type='submit' class='button' value='Submit'>
     </form>
+
+    <?php if(isset($error)): ?>
+        <p class='error'><?php echo $error; ?></p>
+    <?php endif ?>
 
     <?php if (isset($password)): ?>
         <p class='password'><?php echo $password; ?></p>
