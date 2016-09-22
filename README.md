@@ -11,7 +11,7 @@ common English words, and the password can be composed of anywhere from
 to the end of the password.
 
 ## Demo
-<>
+<http://screencast.com/t/AoeyrQGb>
 
 ##Outside code
 * Word list: <https://github.com/pkLazer/password_rank/blob/master/4000-most-common-english-words-csv.csv>
